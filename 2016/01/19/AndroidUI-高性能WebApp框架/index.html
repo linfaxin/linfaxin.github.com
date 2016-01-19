@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="林法鑫的博客">
 <meta property="og:description" content="AndroidUI是一个高性能的WebApp框架, 使用Canvas渲染页面, 使得在移动浏览器上有原生App的体验.
 为什么需要一个高性能的WebApp框架?虽然目前WebApp的框架不少, 但是没有一个能够达到原生级别的流畅度和原生级别的体验.制作一个高体验高性能的复杂交互, 对App来说较容易, 但是对移动浏览器来说, 非常困难.现在用户已经习惯各种高质量和流畅度的原生App, 一个卡顿生硬">
-<meta property="og:updated_time" content="2016-01-19T10:43:22.000Z">
+<meta property="og:updated_time" content="2016-01-19T15:17:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AndroidUI: 高性能WebApp框架">
 <meta name="twitter:description" content="AndroidUI是一个高性能的WebApp框架, 使用Canvas渲染页面, 使得在移动浏览器上有原生App的体验.
@@ -210,13 +210,18 @@
 <li>易用. 框架需要能够让开发者快速上手, 拥有丰富的组件, 能够快速制作出稳定可靠的页面.</li>
 <li>开发者社区. 使用框架中问题能够快速搜索到答案.</li>
 </ol>
+<p>以上条件, 之前一直没有任何WebApp框架能够全部满足, 尤其是在流畅度上.</p>
 <h3 id="u4E3A_u4EC0_u4E48_u662FAndroidUI_3F"><a href="#u4E3A_u4EC0_u4E48_u662FAndroidUI_3F" class="headerlink" title="为什么是AndroidUI?"></a>为什么是AndroidUI?</h3><p>AndroidUI使用Canvas绘制界面.<br>所有组件从Android平台移植而来, 与原生AndroidApp一致的体验和稳定.<br>对Android开发者来说可以轻易上手, 对Web开发者来说, 也是与普通页面相似的开发方式(自定义的HTML标签+JS)<br>因为移植, 框架与AndroidSDK的API一致, 所有API文档用法和问题等都可以从Android社区找到.</p>
 <h3 id="u4F7F_u7528Canvas_u6E32_u67D3_u754C_u9762"><a href="#u4F7F_u7528Canvas_u6E32_u67D3_u754C_u9762" class="headerlink" title="使用Canvas渲染界面"></a>使用Canvas渲染界面</h3><p>DOM性能低下, 普通HTML5页面不能流畅展现复杂界面, 纯Canvas来渲染界面是一种有效方案.</p>
 <p><a href="http://www.csdn.net/article/2015-03-03/2824083-Canvas-UI" target="_blank" rel="external">参考</a></p>
 <h3 id="u79FB_u690D_u81EAAndroid"><a href="#u79FB_u690D_u81EAAndroid" class="headerlink" title="移植自Android"></a>移植自Android</h3><p>Android是开源的, Android的组件是由Java书写, AndroidUI框架做了视图底层的一套实现, Android现有的组件都可以基于此移植到Web端.</p>
-<h3 id="u4F18_u79C0_u7A33_u5B9A_u6613_u7528_u7684_u7EC4_u4EF6"><a href="#u4F18_u79C0_u7A33_u5B9A_u6613_u7528_u7684_u7EC4_u4EF6" class="headerlink" title="优秀稳定易用的组件"></a>优秀稳定易用的组件</h3><p>与AndroidApp开发定义页面的方式一致, AndroidUI使用组件来构造一个页面. 使用Html代码来声明页面布局, Html代码中的一种标签代表一种组件.<br>Android核心的组件都已经移植到AndroidUI, 同时AndroidUI还提供了一些专属的组件.</p>
-<h3 id="u5355_u9875_u9762_u5E94_u7528"><a href="#u5355_u9875_u9762_u5E94_u7528" class="headerlink" title="单页面应用"></a>单页面应用</h3><p>AndroidUI拥有一个优秀的页面栈控制(页面路由)的实现.<br>页面栈和页面数据能够在浏览器刷新后保持.<br>页面能够响应浏览器的后退而关闭, 还能’截获’后退的点击并实现自定义逻辑.</p>
-<h3 id="u4E00_u4E9B_u95EE_u9898_u548C_u6311_u6218"><a href="#u4E00_u4E9B_u95EE_u9898_u548C_u6311_u6218" class="headerlink" title="一些问题和挑战"></a>一些问题和挑战</h3><p>暂无.</p>
+<h3 id="u4F18_u79C0_u7A33_u5B9A_u6613_u7528_u7684_u7EC4_u4EF6"><a href="#u4F18_u79C0_u7A33_u5B9A_u6613_u7528_u7684_u7EC4_u4EF6" class="headerlink" title="优秀稳定易用的组件"></a>优秀稳定易用的组件</h3><p>与AndroidApp开发定义页面的方式一致, AndroidUI使用组件来构造一个页面. 使用Html代码来声明页面布局, Html代码中的一种标签代表一种组件.<br>Android核心的组件都已经移植到AndroidUI, 同时AndroidUI还提供了一些专属的组件.<br>所有移植的组件都拥有系统级别的稳定, 所有流行的开源第三方Android视图组件都可以移植到这个框架.</p>
+<h3 id="u652F_u6301_u5355_u9875_u9762_u5E94_u7528"><a href="#u652F_u6301_u5355_u9875_u9762_u5E94_u7528" class="headerlink" title="支持单页面应用"></a>支持单页面应用</h3><p>AndroidUI拥有一个优秀的页面栈控制(页面路由)的实现.<br>页面栈和页面数据能够在浏览器刷新后保持.<br>页面能够响应浏览器的后退而关闭, 还能’截获’后退的点击并实现自定义逻辑.</p>
+<h3 id="u4E00_u4E9B_u95EE_u9898_u548C_u6311_u6218"><a href="#u4E00_u4E9B_u95EE_u9898_u548C_u6311_u6218" class="headerlink" title="一些问题和挑战"></a>一些问题和挑战</h3><ol>
+<li>Android端流畅度<br>Android端4.x原生系统浏览器的内核版本较低, 只有20-30fps. 不过国内主流机型都是定制过的系统(小米系统等), 默认浏览器内核已是较新版本, 能有40-50fps.<br>随着时间过去, Android5.0及以上机型会更多, 这个问题不用再担心.</li>
+<li>打包成App<br>目前可以使用<a href="http://cordova.apache.org/" target="_blank" rel="external">Cordova(PhoneGap)</a>打包方案, 同时建议Android端打包进<a href="https://crosswalk-project.org/" target="_blank" rel="external">CrossWalk</a>内核保证4.x系统的流畅度.<br>未来会计划使用自己的打包方案, 使代码由纯JS引擎驱动, 脱离浏览器, 获得极速的体验.</li>
+<li>如何方便的调试<br>在’android-ui’标签加上debug属性, 所有Android视图节点都会以DOM节点的形式输出到’android-ui’标签里, 可以看到每个节点的大小位置.<br>Chrome里选中对应节点后, 可以在节点的Properties里看到DOM节点的字段值, 所有Android节点的信息都在AndroidView字段里.</li>
+</ol>
 
       
     </div>
