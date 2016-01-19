@@ -9,7 +9,7 @@
   <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="林法鑫的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://linfaxin.com/index.html">
 <meta property="og:site_name" content="林法鑫的博客">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -188,44 +188,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>对Android开发者的AndroidUI框架起步教程.</p>
-<p>代码使用TypeScript书写, 风格和语法与Java相似, 就算没有接触过TypeScript, 可以很快上手: <a href="http://www.typescriptlang.org/Handbook" target="_blank" rel="external">http://www.typescriptlang.org/Handbook</a></p>
-<h3 id="1-_u51C6_u5907_u73AF_u5883"><a href="#1-_u51C6_u5907_u73AF_u5883" class="headerlink" title="1.准备环境"></a>1.准备环境</h3><ol>
-<li>下载IDE: 支持Typescript的IDE或者编辑器. (推荐使用<a href="https://www.jetbrains.com/webstorm/" target="_blank" rel="external">WebStorm</a>)</li>
-<li>安装Node.js: <a href="https://nodejs.org/" target="_blank" rel="external">https://nodejs.org/</a> </li>
-<li>安装<a href="http://www.typescriptlang.org" target="_blank" rel="external">Typescript</a>: npm install -g typescript</li>
-<li>安装<a href="https://babeljs.io" target="_blank" rel="external">Babel转码器</a>: npm install -g babel-cli</li>
-<li>下载打开Hello World工程: <a href="https://github.com/linfaxin/AndroidUI4Web-HelloWorld/archive/master.zip" target="_blank" rel="external">下载地址</a></li>
-<li>如果使用WebStorm, 打开工程后, 需要在设置中开启TypeScript编译以获得更好代码提示和错误检查:<br>Preferences -&gt; Languages &amp; Frameworks -&gt; TypeScript: 1.Enable TypeScript Compiler. 2.use tsconfig.json</li>
-</ol>
-<h3 id="2-_u6587_u4EF6/_u76EE_u5F55_u8BF4_u660E"><a href="#2-_u6587_u4EF6/_u76EE_u5F55_u8BF4_u660E" class="headerlink" title="2.文件/目录说明"></a>2.文件/目录说明</h3><ol>
-<li><p>app.html<br>App入口页面, 可以修改’title’标签为你的App名字, ‘android-ui’标签里定义activity为App的入口Activity</p>
-</li>
-<li><p>androidui-sdk<br>AndroidUI框架存放的目录, 如果框架版本有更新, 需要升级替换其中的文件.</p>
-</li>
-<li><p>build<br>存放最终构建生成的js文件.</p>
-</li>
-<li><p>res &amp; gen<br>res文件夹放图片,布局等资源, 在构建时会生成R文件在gen目录, 在代码引用R文件调用资源</p>
-</li>
-<li><p>src<br>代码的存放目录</p>
-</li>
-</ol>
-<h3 id="3-_u67E5_u770BApp"><a href="#3-_u67E5_u770BApp" class="headerlink" title="3.查看App"></a>3.查看App</h3><p>如果使用WebStorm, 可以直接对app.html文件右键-&gt;Open In Browser 就可以查看.<br>或者也可以在工程目录起一个本地服务器, 然后打开app.html:<br>安装anywhere:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g anywhere</span><br></pre></td></tr></table></figure></p>
-<p>启动本地服务器:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">anywhere</span><br></pre></td></tr></table></figure></p>
-<h3 id="4-_u5E03_u5C40"><a href="#4-_u5E03_u5C40" class="headerlink" title="4.布局"></a>4.布局</h3><p>与Android工程一致, 布局文件存放在res/layout文件夹, 不过目前仅支持’.html’后缀的布局文件.<br>布局代码内容与Android工程一致, 如HelloWorld工程中的activity_main.html文件:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">FrameLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">TextView</span></span><br><span class="line">            <span class="attribute">android:text</span>=<span class="value">"Hello world"</span></span><br><span class="line">            <span class="attribute">android:gravity</span>=<span class="value">"center"</span></span><br><span class="line">    &gt;</span><span class="tag">&lt;/<span class="title">TextView</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">FrameLayout</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>需要注意的是目前不支持self-closing, 如上例中的TextView不能写成:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">FrameLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">TextView</span></span><br><span class="line">            <span class="attribute">android:text</span>=<span class="value">"Hello world"</span></span><br><span class="line">            <span class="attribute">android:gravity</span>=<span class="value">"center"</span></span><br><span class="line">    /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">FrameLayout</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>另外layout_width和layout_height属性不是必须项, 如果没有定义则以父节点的默认定义为准.<a href="http://developer.android.com/intl/zh-cn/reference/android/view/ViewGroup.html#generateDefaultLayoutParams\(\" target="_blank" rel="external">参考</a>)</p>
-<p>如果新增了布局文件, 需要先手动执行build脚本, 才可以在代码中以 R.layout.xxx 方式引用到这个布局:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./build.sh</span><br></pre></td></tr></table></figure></p>
-<h3 id="5-_u4EE3_u7801"><a href="#5-_u4EE3_u7801" class="headerlink" title="5.代码"></a>5.代码</h3><p>代码存放在src目录, 使用TypeScript书写, 代码风格和语法和Java较为接近, 可以很快上手并书写代码.</p>
-<p>需要注意的一些事项是:</p>
-<ol>
-<li>Java中可以省略this调用方法和属性, 但TypeScript中必须带上. 如: this.setContentView(…)</li>
-<li>一个类不能有多个同名的方法</li>
-<li>其他常见的Java开发学JavaScript会遇到的问题.</li>
-</ol>
-<p>修改代码后必须手动执行build脚本:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./build.sh</span><br></pre></td></tr></table></figure></p>
-<p>然后刷新浏览器看到最新结果.</p>
-<h3 id="6-END"><a href="#6-END" class="headerlink" title="6.END"></a>6.END</h3><p>暂无.</p>
-
       
     </div>
     
@@ -238,6 +200,10 @@
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/01/19/AndroidUI起步For-Android开发者/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -281,23 +247,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://github.com/linfaxin/AndroidUI4Web" target="_blank" rel="external">AndroidUI</a>是一个高性能的WebApp框架, 使用Canvas渲染页面, 使得在移动浏览器上有原生App的体验.</p>
+        <p><a href="https://github.com/linfaxin/AndroidUI4Web">AndroidUI</a>是一个高性能的WebApp框架, 使用Canvas渲染页面, 使得在移动浏览器上有原生App的体验.</p>
 <h3 id="u4E3A_u4EC0_u4E48_u9700_u8981_u4E00_u4E2A_u9AD8_u6027_u80FD_u7684WebApp_u6846_u67B6_3F"><a href="#u4E3A_u4EC0_u4E48_u9700_u8981_u4E00_u4E2A_u9AD8_u6027_u80FD_u7684WebApp_u6846_u67B6_3F" class="headerlink" title="为什么需要一个高性能的WebApp框架?"></a>为什么需要一个高性能的WebApp框架?</h3><p>虽然目前WebApp的框架不少, 但是没有一个能够达到原生级别的流畅度和原生级别的体验.<br>制作一个高体验高性能的复杂交互, 对App来说较容易, 但是对移动浏览器来说, 非常困难.<br>现在用户已经习惯各种高质量和流畅度的原生App, 一个卡顿生硬的Web页面将很难被用户接受.<br>随着移动端设备越来越多, 微信应用号发布, 越来越多的页面需要被移动浏览器承载, 越来越复杂的交互, 要求越来越高的页面体验, 一个高性能的WebApp框架必须出现.</p>
-<h3 id="u4E00_u4E2A_u5408_u683C_u7684WebApp_u6846_u67B6_u9700_u8981_u505A_u5230_u4EC0_u4E48"><a href="#u4E00_u4E2A_u5408_u683C_u7684WebApp_u6846_u67B6_u9700_u8981_u505A_u5230_u4EC0_u4E48" class="headerlink" title="一个合格的WebApp框架需要做到什么"></a>一个合格的WebApp框架需要做到什么</h3><ol>
-<li>流畅度. 一个移动应用, 至少需要50fps才能让用户在交互中感受不到卡顿.</li>
-<li>原生级别体验. 页面过渡动画, 滚动回弹, 点击响应等等细节都需要达到原生级别的体验.</li>
-<li>稳定. 框架提供的接口和能力必须是通过测试, 可用于生产.</li>
-<li>易用. 框架需要能够让开发者快速上手, 拥有丰富的组件, 能够快速制作出稳定可靠的页面.</li>
-<li>开发者社区. 使用框架中问题能够快速搜索到答案.</li>
-</ol>
-<h3 id="u4E3A_u4EC0_u4E48_u662FAndroidUI_3F"><a href="#u4E3A_u4EC0_u4E48_u662FAndroidUI_3F" class="headerlink" title="为什么是AndroidUI?"></a>为什么是AndroidUI?</h3><p>AndroidUI使用Canvas绘制界面.<br>所有组件从Android平台移植而来, 与原生AndroidApp一致的体验和稳定.<br>对Android开发者来说可以轻易上手, 对Web开发者来说, 也是与普通页面相似的开发方式(自定义的HTML标签+JS)<br>因为移植, 框架与AndroidSDK的API一致, 所有API文档用法和问题等都可以从Android社区找到.</p>
-<h3 id="u4F7F_u7528Canvas_u6E32_u67D3_u754C_u9762"><a href="#u4F7F_u7528Canvas_u6E32_u67D3_u754C_u9762" class="headerlink" title="使用Canvas渲染界面"></a>使用Canvas渲染界面</h3><p>DOM性能低下, 普通HTML5页面不能流畅展现复杂界面, 纯Canvas来渲染界面是一种有效方案.</p>
-<p><a href="http://www.csdn.net/article/2015-03-03/2824083-Canvas-UI" target="_blank" rel="external">参考</a></p>
-<h3 id="u79FB_u690D_u81EAAndroid"><a href="#u79FB_u690D_u81EAAndroid" class="headerlink" title="移植自Android"></a>移植自Android</h3><p>Android是开源的, Android的组件是由Java书写, AndroidUI框架做了视图底层的一套实现, Android现有的组件都可以基于此移植到Web端.</p>
-<h3 id="u4F18_u79C0_u7A33_u5B9A_u6613_u7528_u7684_u7EC4_u4EF6"><a href="#u4F18_u79C0_u7A33_u5B9A_u6613_u7528_u7684_u7EC4_u4EF6" class="headerlink" title="优秀稳定易用的组件"></a>优秀稳定易用的组件</h3><p>与AndroidApp开发定义页面的方式一致, AndroidUI使用组件来构造一个页面. 使用Html代码来声明页面布局, Html代码中的一种标签代表一种组件.<br>Android核心的组件都已经移植到AndroidUI, 同时AndroidUI还提供了一些专属的组件.</p>
-<h3 id="u5355_u9875_u9762_u5E94_u7528"><a href="#u5355_u9875_u9762_u5E94_u7528" class="headerlink" title="单页面应用"></a>单页面应用</h3><p>AndroidUI拥有一个优秀的页面栈控制(页面路由)的实现.<br>页面栈和页面数据能够在浏览器刷新后保持.<br>页面能够响应浏览器的后退而关闭, 还能’截获’后退的点击并实现自定义逻辑.</p>
-<h3 id="u4E00_u4E9B_u95EE_u9898_u548C_u6311_u6218"><a href="#u4E00_u4E9B_u95EE_u9898_u548C_u6311_u6218" class="headerlink" title="一些问题和挑战"></a>一些问题和挑战</h3><p>暂无.</p>
-
       
     </div>
     
@@ -310,6 +261,10 @@
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/01/19/AndroidUI-高性能WebApp框架/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
