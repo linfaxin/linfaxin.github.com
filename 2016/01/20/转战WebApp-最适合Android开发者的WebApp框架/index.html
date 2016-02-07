@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://linfaxin.com/image/androidui/debug_layout.png">
 <meta property="og:image" content="http://linfaxin.com/image/androidui/debug_node.png">
 <meta property="og:image" content="http://linfaxin.com/image/androidui/debug_source.png">
-<meta property="og:updated_time" content="2016-01-20T08:36:45.000Z">
+<meta property="og:updated_time" content="2016-02-07T07:40:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="转战WebApp: 最适合Android开发者的WebApp框架">
 <meta name="twitter:description" content="为什么需要转战WebApp开发随着移动端设备越来越多, 微信应用号即将发布, 越来越多的页面需要被移动浏览器承载, HTML5开发大热, 我们需要掌握Web开发的技能来适应时代变化.
@@ -206,7 +206,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="u4E3A_u4EC0_u4E48_u9700_u8981_u8F6C_u6218WebApp_u5F00_u53D1"><a href="#u4E3A_u4EC0_u4E48_u9700_u8981_u8F6C_u6218WebApp_u5F00_u53D1" class="headerlink" title="为什么需要转战WebApp开发"></a>为什么需要转战WebApp开发</h3><p>随着移动端设备越来越多, 微信应用号即将发布, 越来越多的页面需要被移动浏览器承载, HTML5开发大热, 我们需要掌握Web开发的技能来适应时代变化.</p>
-<h3 id="u5408_u9002_u7684WebApp_u6846_u67B6"><a href="#u5408_u9002_u7684WebApp_u6846_u67B6" class="headerlink" title="合适的WebApp框架"></a>合适的WebApp框架</h3><p><a href="https://github.com/linfaxin/AndroidUI4Web" target="_blank" rel="external">AndroidUI4Web</a>是一个高性能的WebApp框架, 在移动浏览器上有与原生App一致的体验.<br>对Android开发者们来说, 更重要的是:<br>框架移植自Android, 开发方式和API调用与Android开发保持一致, Android们可以低成本快速上手开发.</p>
+<h3 id="u5408_u9002_u7684WebApp_u6846_u67B6"><a href="#u5408_u9002_u7684WebApp_u6846_u67B6" class="headerlink" title="合适的WebApp框架"></a>合适的WebApp框架</h3><p><a href="https://github.com/linfaxin/AndroidUI-WebApp" target="_blank" rel="external">AndroidUI4Web</a>是一个高性能的WebApp框架, 在移动浏览器上有与原生App一致的体验.<br>对Android开发者们来说, 更重要的是:<br>框架移植自Android, 开发方式和API调用与Android开发保持一致, Android们可以低成本快速上手开发.</p>
 <a id="more"></a>
 <h3 id="u6846_u67B6_u4F18_u70B9"><a href="#u6846_u67B6_u4F18_u70B9" class="headerlink" title="框架优点"></a>框架优点</h3><ol>
 <li>流畅度. 框架使用Web Canvas渲染页面, 能有接近60fps的流畅度.</li>
@@ -215,7 +215,7 @@
 <li>易用. 对Android开发者可以超低成本上手开发.</li>
 <li>开发者社区. 所有API文档用法和问题等都可以从Android社区找到.</li>
 </ol>
-<h3 id="Sample_App"><a href="#Sample_App" class="headerlink" title="Sample App"></a>Sample App</h3><p>在线Sample地址: <a href="http://linfaxin.com/AndroidUI4Web/sample/main.html">http://linfaxin.com/AndroidUI4Web/sample/main.html</a><br>预览:<br><img src="/image/androidui/sample_app_preview.png" alt="预览"></p>
+<h3 id="Sample_App"><a href="#Sample_App" class="headerlink" title="Sample App"></a>Sample App</h3><p>在线Sample地址: <a href="http://linfaxin.com/AndroidUI-WebApp/sample/main.html">http://linfaxin.com/AndroidUI-WebApp/sample/main.html</a><br>预览:<br><img src="/image/androidui/sample_app_preview.png" alt="预览"></p>
 <h3 id="u9AD8_u6027_u80FD_u7684_u539F_u56E0_3ACanvas"><a href="#u9AD8_u6027_u80FD_u7684_u539F_u56E0_3ACanvas" class="headerlink" title="高性能的原因:Canvas"></a>高性能的原因:Canvas</h3><p>Android中的视图是通过Android的Canvas对象渲染的, AndroidUI4Web框架接管Android的视图层, 所有渲染最终由Web Canvas实现.<br>主流的Web开发是DOM开发, 而DOM节点的性能是公认的慢的, 其他框架不能胜任一个复杂的WebApp开发.<br><a href="http://www.csdn.net/article/2015-03-03/2824083-Canvas-UI" target="_blank" rel="external">参考</a></p>
 <h3 id="u4E0EAndroid_u5F00_u53D1_u76F8_u4F3C"><a href="#u4E0EAndroid_u5F00_u53D1_u76F8_u4F3C" class="headerlink" title="与Android开发相似"></a>与Android开发相似</h3><p>整个WebApp的开发流程与AndroidApp基本一致</p>
 <p>HTML语法布局:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">FrameLayout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">TextView</span></span><br><span class="line">            <span class="attribute">android:text</span>=<span class="value">"Hello world"</span></span><br><span class="line">            <span class="attribute">android:gravity</span>=<span class="value">"center"</span></span><br><span class="line">    &gt;</span><span class="tag">&lt;/<span class="title">TextView</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">FrameLayout</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
